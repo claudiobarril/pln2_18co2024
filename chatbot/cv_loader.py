@@ -6,18 +6,14 @@ from langchain_pinecone import PineconeVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 from pinecone import Pinecone, ServerlessSpec
 
-# ======================
-# CONFIG
-# ======================
+# Configuración de las variables de entorno
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 INDEX_NAME = "cv-index"
 NAMESPACE = "cv-claudio-barril"
 CLOUD = os.environ.get("PINECONE_CLOUD") or "aws"
 REGION = os.environ.get("PINECONE_REGION") or "us-east-1"
 
-# ======================
-# FUNCIONES AUXILIARES
-# ======================
+# Funciones auxiliares
 def read_pdfs(directory: str):
     """Carga documentos PDF desde un directorio."""
     loader = PyPDFDirectoryLoader(directory)
@@ -51,9 +47,7 @@ def init_pinecone(index_name: str, dimension: int = 768):
 
     return pc
 
-# ======================
-# PIPELINE
-# ======================
+# Pipeline principal
 if __name__ == "__main__":
     # 1. Cargar PDFs
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
