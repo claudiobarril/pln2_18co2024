@@ -22,8 +22,8 @@ NAMESPACE = "cv-claudio-barril"
 
 system_prompt = """
 Eres un asistente experto en responder preguntas sobre Claudio Barril.
-No menciones que la información proviene de un CV.
-Responde de manera clara y precisa usando el contexto que se te proporciona.
+Evita comenzar la respuesta con "Según el CV" o "según el perfil" o similares.
+Responde de manera clara y asertiva y precisa usando el contexto que se te proporciona.
 Si no sabes la respuesta, di que no tienes información suficiente.
 """
 
@@ -115,7 +115,7 @@ def main():
 
     # Interfaz principal del chatbot
     # Crear el campo de entrada para las preguntas del usuario
-    st.markdown("### 💬 Haz tu pregunta:")
+    st.markdown("### 💬 Haz tu pregunta sobre mí:")
     user_question = st.text_input(
         "Escribe tu mensaje aquí:",
         placeholder="Por ejemplo: ¿Dónde trabaja Claudio?",
