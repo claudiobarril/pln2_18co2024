@@ -39,7 +39,7 @@ def main():
         score = match["score"]
         text = match["metadata"].get("text", "")
         print(f"Score: {score:.4f}")
-        print(f"Texto: {text[:300]}...\n")  # mostramos solo primeros 300 chars
+        print(f"Texto: {text}\n")
 
 if __name__ == "__main__":
     main()
