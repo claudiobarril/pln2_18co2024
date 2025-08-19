@@ -115,7 +115,7 @@ def main():
 
     # Interfaz principal del chatbot
     # Crear el campo de entrada para las preguntas del usuario
-    st.markdown("### 💬 Haz tu pregunta sobre mí:")
+    st.markdown("### 💬 Haz una pregunta sobre mí:")
     user_question = st.text_input(
         "Escribe tu mensaje aquí:",
         placeholder="Por ejemplo: ¿Dónde trabaja Claudio?",
