@@ -37,12 +37,7 @@ def main():
     # Configurar el título y descripción de la aplicación
     st.title("🤖 Chatbot Claudio Barril - NLP II")
     st.markdown("""
-    **¡Bienvenido a mi chatbot!** 
-
-    Este chatbot utiliza:
-    - 🧠 **Memoria conversacional**: Recuerda el contexto de tu conversación
-    - 🔄 **Modelos intercambiables**: Puedes elegir diferentes LLMs
-    - 🚀 **Powered by Groq**: Respuestas rápidas y precisas
+    **¡Bienvenido a mi chatbot!**
     """)
 
     # Barra lateral para configuración del chatbot
