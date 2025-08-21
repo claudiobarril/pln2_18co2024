@@ -84,7 +84,7 @@ Configurar variables de entorno en el sistema o archivo `.env`:
 #### Iniciar el Chatbot
 1. Ejecutar:
 ```bash
-    streamlit run chatbot.py
+    streamlit run chatbot/chatbot.py
 ```
 2. Acceder al chatbot en http://localhost:8501
 
