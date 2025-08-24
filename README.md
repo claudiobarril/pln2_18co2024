@@ -109,7 +109,7 @@ El contenido del trabajo se encuentra organizado en la carpeta `chatbot_agent`.
 - `agent.py`: Implementación del agente decisor que determina a qué CV/s consultar.
 - `tools.py`: Herramientas de búsqueda para cada CV individual.
 - `cvs_loader.py`: Script para cargar los CVs en la base de datos vectorial, en distintos namespaces del mismo índice.
-- `test_question.py`: Script para probar el agente con una pregunta de ejemplo.
+- `test_agent.py`: Script para probar el agente con una pregunta de ejemplo.
 - `chatbot_agent.py`: Interfaz principal del chatbot con Streamlit.
 
 ### Decisiones de Diseño
@@ -268,7 +268,7 @@ Configurar variables de entorno en el sistema o archivo `.env`:
 
 #### Probar el agente
 ```bash
-    python chatbot_agent/test_question.py "{pregunta de ejemplo}"
+    python chatbot_agent/test_agent.py "{pregunta de ejemplo}"
 ```
 
 #### Iniciar el Chatbot
