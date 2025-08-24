@@ -106,9 +106,10 @@ Este proyecto implementa un chatbot que utiliza un agente decisor para responder
 El contenido del trabajo se encuentra organizado en la carpeta `chatbot_agent`.
 - `diagram/flow.png`: Diagrama de flujo del proceso de decisión del agente y resolución de la pregunta.
 - `cvs/`: Carpeta donde se encuentran los CVs a cargar en la base
-- `cvs_loader.py`: Script para cargar los CVs en la base de datos vectorial, en distintos namespaces del mismo índice.
 - `agent.py`: Implementación del agente decisor que determina a qué CV/s consultar.
 - `tools.py`: Herramientas de búsqueda para cada CV individual.
+- `cvs_loader.py`: Script para cargar los CVs en la base de datos vectorial, en distintos namespaces del mismo índice.
+- `test_question.py`: Script para probar el agente con una pregunta de ejemplo.
 - `chatbot_agent.py`: Interfaz principal del chatbot con Streamlit.
 
 ### Decisiones de Diseño
@@ -263,6 +264,11 @@ Configurar variables de entorno en el sistema o archivo `.env`:
 #### Cargar el CV
 ```bash
     python chatbot_agent/cvs_loader.py
+```
+
+#### Probar el agente
+```bash
+    python chatbot_agent/test_question.py "{pregunta de ejemplo}"
 ```
 
 #### Iniciar el Chatbot

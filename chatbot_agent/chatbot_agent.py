@@ -1,6 +1,8 @@
 import streamlit as st
 import os
 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 from langchain_groq import ChatGroq
 from agent import Agent
 from tools import search_cv_lara, search_cv_victoria, search_cv_claudio
@@ -60,7 +62,7 @@ def main():
     st.markdown("### 💬 Haz una pregunta sobre los integrantes del grupo:")
     user_question = st.text_input(
         "Escribe tu mensaje aquí:",
-        placeholder="Por ejemplo: ¿Han trabajado Victoria y Claudio en alguna empresa en común?",
+        placeholder="Por ejemplo: ¿Estudiaron Victoria y Claudio en la misma universidad?",
         label_visibility="collapsed"
     )
 

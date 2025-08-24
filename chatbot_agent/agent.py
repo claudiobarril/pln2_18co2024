@@ -1,9 +1,8 @@
 import unicodedata
 import re
 
-from typing import Dict
-from langchain_core.messages import SystemMessage, HumanMessage
-from langchain.chains.conversation.memory import ConversationBufferWindowMemory
+from typing import Dict, List
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 
 class Agent:
@@ -18,11 +17,8 @@ class Agent:
         self.system = system
         self.tools = {t.name: t for t in tools}
         self.model = model
-        self.memory = ConversationBufferWindowMemory(
-            k=memory_k,
-            memory_key="chat_history",
-            return_messages=True
-        )
+        self.memory_k = memory_k
+        self.chat_history: List = []
 
     @staticmethod
     def normalizar(texto: str) -> str:
@@ -74,15 +70,17 @@ class Agent:
         messages = []
         if self.system:
             messages.append(SystemMessage(content=self.system))
-        history = self.memory.load_memory_variables({}).get("chat_history", [])
-        messages.extend(history)
+
+        # Agregar historial de chat (solo los últimos k mensajes)
+        messages.extend(self.chat_history[-self.memory_k:])
         messages.append(HumanMessage(content=enhanced_prompt))
 
         response = self.model.invoke(messages)
 
         # 6. Save to memory and return
-        self.memory.save_context(
-            {"input": user_input},
-            {"output": response.content}
-        )
+        self.chat_history.extend([
+            HumanMessage(content=user_input),
+            AIMessage(content=response.content)
+        ])
+
         return response.content
